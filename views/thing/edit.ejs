@@ -1,0 +1,18 @@
+<br/><br/><br/>
+<div style="width: 40%;" class="container">
+<form action="/thing/update/<%= thing.id %>" method="post">
+
+  <h2>you 're editing a product...</h2>
+
+  <input value="<%= thing.category %>" name="category" type="text" class="form-control"/>
+
+  <input value="<%= thing.name %>" name="name" type="text" class="form-control"/>
+
+  <input value="<%= thing.price %>" name="price" type="text" class="form-control"/>
+
+  <input type="submit" value="Proceed" class="btn btn-lg btn-primary btn-block" />
+
+  <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+
+</form>
+</div>

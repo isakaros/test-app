@@ -1,0 +1,41 @@
+<br/><br/><br/>
+<div class="container">
+  <h3>Product table</h3>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% _.each(things, function(thing) { %>
+    <tr data-id="<%= thing.id %>" data-model="thing">
+      <td><%= thing.id %></td>
+      <td><%= thing.category %></td>
+      <td><%= thing.name %></td>
+      <td><%= thing.price %></td>
+      <td><a href="/thing/show/<%= thing.id %>" class="btn btn-sm btn-primary">Show</a></td>
+      <td><a href="/thing/edit/<%= thing.id %>" class="btn btn-sm btn-warning">Edit</a></td>
+      <td><form action="/thing/destroy/<%- thing.id %>" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <input type="submit" class="btn btn-sm btn-danger" value="Delete"/>
+          <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        </form></td>
+    </tr>
+
+    <% }) %>
+    
+  </table>
+  <a href="/thing/new" class="btn btn-log btn-info">Add a product </a>
+</div>
+<br/><br/><br/>
+<div class="container">
+<form action="/thing/search" method="post">
+<input type="text" class="form-control" placeholder="Search..." name="thingSearch">
+</form>
+<input type="submit" class="btn btn-medium btn-primary" value="Search"/>
+</div>
