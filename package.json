@@ -22,16 +22,18 @@
     "rc": "1.0.1",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
-    "sails-mysql": "^0.11.5"
+    "sails-mysql": "^0.11.5",
+    "node": "8.9.4"
   },
   "scripts": {
-    "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "sails lift",
+    "debug": "node debug app.js"
+    
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/test-app.git"
+    "url": "git:git.heroku.com/erpwebapp.git"
   },
   "author": "anonymous node/sails user",
   "license": ""

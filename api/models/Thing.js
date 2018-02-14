@@ -18,14 +18,14 @@ module.exports = {
       type: 'string',
       required: true
      
-    },
+    }
 
-    thingSearch: {
+  //   thingSearch: {
       
-      type: 'string',
-      required : true
+  //     type: 'string',
+  //     required : true
 
-  }
+  // }
 
     },
     

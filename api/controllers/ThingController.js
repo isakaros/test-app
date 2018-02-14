@@ -95,18 +95,25 @@ module.exports = {
 
       res.redirect('/thing');
     });
-  },
+   },
 
-  search: function (req, res, next) {
-  	Thing.find(req.params.all(),function foundThings (err, things){
-  		if (err) return next(err);
-  		if (!thing) return next('thing doesnt exist');
-  		// res.view({
-  		// 	things: things
-  		// });
+  search: function(req, res) {
 
-  		return res.json(things);
-  	});
+    var searchObj = {};
+searchObj[criteria] = value;
+// and then search like you did before
+Human.find().where(searchObj).done(function(err, things) {
+  if(err) {
+    console.log('Error:' + err);
+    // you should return some response here:
+    res.send(err, 500);
+  }else{
+    res.view({
+      title: 'Search',
+      things: things
+    });
   }
+});
+}
 
 };

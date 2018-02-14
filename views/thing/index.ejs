@@ -1,7 +1,11 @@
 <br/><br/><br/>
 <div class="container">
   <h3>Product table</h3>
-  <table class="table">
+  <div style="width: 35%;">
+  <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Product names..">
+  </div>
+  <br/>
+  <table class="table" id="myTable">
     <tr>
       <th>ID</th>
       <th>Category</th>
@@ -30,12 +34,69 @@
     <% }) %>
     
   </table>
-  <a href="/thing/new" class="btn btn-log btn-info">Add a product </a>
-</div>
-<br/><br/><br/>
-<div class="container">
-<form action="/thing/search" method="post">
-<input type="text" class="form-control" placeholder="Search..." name="thingSearch">
+  
+
+  <div class="content">
+
+  <div style="width: 30%;">
+  <a class="btn btn-log btn-info btn-block collapsible">Add a product </a>
+<form action="/thing/create" method="POST">
+
+
+  <input type="text" class="form-control" placeholder="Category" name="category">
+
+  <input type="text" class="form-control" placeholder="Product name" name="name">
+
+  <input type="text" class="form-control" placeholder="Price" name="price">
+
+  
+  <br />
+
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create product"/>
+  
 </form>
-<input type="submit" class="btn btn-medium btn-primary" value="Search"/>
 </div>
+</div>
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+</script>
+
+  <script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
+
