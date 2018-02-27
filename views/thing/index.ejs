@@ -21,7 +21,7 @@
       <td><%= thing.id %></td>
       <td><%= thing.category %></td>
       <td><%= thing.name %></td>
-      <td><%= thing.price %></td>
+      <td><%= thing.price %>$</td>
       <td><a href="/thing/show/<%= thing.id %>" class="btn btn-sm btn-primary">Show</a></td>
       <td><a href="/thing/edit/<%= thing.id %>" class="btn btn-sm btn-warning">Edit</a></td>
       <td><form action="/thing/destroy/<%- thing.id %>" method="post">

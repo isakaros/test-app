@@ -11,7 +11,27 @@ module.exports = {
     res.view();
   },
 
+  // beforeCreate: function (values, next) {
+
+  //     Thing.findOne(req.param('name'), function foundThing(err, thing){
+
+  //       if (err) return next(err);
+  //       if (thing){
+
+  //         Thing.create(req.param('price'), function priceCreated)
+
+  //       }
+  //     })
+
+  //     //this checks to make sure the password and confirmation match before creating record
+
+      
+
+  //   },
+
   create: function (req, res, next){
+
+
 
 
     Thing.create(req.params.all(), function ThingCreated(err, thing) {
@@ -97,23 +117,23 @@ module.exports = {
     });
    },
 
-  search: function(req, res) {
+//   search: function(req, res) {
 
-    var searchObj = {};
-searchObj[criteria] = value;
-// and then search like you did before
-Human.find().where(searchObj).done(function(err, things) {
-  if(err) {
-    console.log('Error:' + err);
-    // you should return some response here:
-    res.send(err, 500);
-  }else{
-    res.view({
-      title: 'Search',
-      things: things
-    });
-  }
-});
-}
+//     var searchObj = {};
+// searchObj[criteria] = value;
+// // and then search like you did before
+// Thing.find().where(searchObj).done(function(err, things) {
+//   if(err) {
+//     console.log('Error:' + err);
+//     // you should return some response here:
+//     res.send(err, 500);
+//   }else{
+//     res.view({
+//       title: 'Search',
+//       things: things
+//     });
+//   }
+// });
+// }
 
 };
